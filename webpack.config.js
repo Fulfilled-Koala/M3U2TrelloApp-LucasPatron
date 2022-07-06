@@ -3,6 +3,9 @@ const path = require('path');
 module.exports = {
   mode: 'production',
   entry: path.resolve(__dirname, './src/index.ts'),
+  watchOptions: {
+    ignored: /public/,
+  },
   module: {
     rules: [
       {
@@ -14,7 +17,11 @@ module.exports = {
         test: /\.css$/i,
         include: path.resolve(__dirname, './src'),
         use: ['style-loader', 'css-loader', 'postcss-loader'],
-      }
+      },
+      {
+        test: /\.js$/,
+        exclude: /public/,
+      },
     ],
   },
   resolve: {
