@@ -18,7 +18,6 @@ module.exports = {
     'capitalized-comments': 1,
     'arrow-parens': 1,
     'no-confusing-arrow': 1,
-    'no-magic-numbers': 2,
     'no-unused-expressions': 1,
     'block-scoped-var': 2,
     camelcase: 2,
