@@ -4,7 +4,7 @@ module.exports = {
   mode: 'production',
   entry: path.resolve(__dirname, './src/index.ts'),
   watchOptions: {
-    ignored: /public/,
+    ignored: /\.js$/,
   },
   module: {
     rules: [
