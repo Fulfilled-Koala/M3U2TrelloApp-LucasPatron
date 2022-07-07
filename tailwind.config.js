@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./public/*.html'],
-  darkMode: 'media', // or 'media' or 'class'
+  content: ['./public/**/*.{html,js}'],
+  darkMode: 'media',
   theme: {
     extend: {},
   },
@@ -9,4 +9,9 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  theme: {
+    fontFamily: {
+      poppins: ['Poppins', 'sans-serif'],
+    },
+  },
 };
