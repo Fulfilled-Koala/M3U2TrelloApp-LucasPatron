@@ -6,7 +6,7 @@
     <script src="./bundle.js" async defer></script>
   </head>
   <body
-    class="font-poppins bg-gradient-to-bl from-[#f0f6fc] via-[#fdf7fb] to-[#f6ffff] gap-2 min-h-screen"
+    class="font-poppins bg-gradient-to-bl from-[#f0f6fc] via-[#fdf7fb] to-[#f6ffff] gap-2 min-h-screen select-none"
   >
     <!-- Body -->
     <div class="p-4">
@@ -48,12 +48,7 @@
               + New Item
             </button>
           </div>
-          <ul
-            id="backlog-container"
-            class="bg-slate-50 flex flex-col p-4 rounded-lg mt-4 shadow-md"
-          >
-            <p>Quite empty...</p>
-          </ul>
+          <ul id="backlog" class="bg-slate-50 flex flex-col p-4 rounded-lg mt-4 shadow-md"></ul>
         </div>
 
         <!-- Work in Progress -->
@@ -66,9 +61,10 @@
               + New Item
             </button>
           </div>
-          <ul id="wip-container" class="bg-slate-50 flex flex-col p-4 rounded-lg mt-4 shadow-md">
-            <p>Quite empty...</p>
-          </ul>
+          <ul
+            id="work-in-progress"
+            class="bg-slate-50 flex flex-col p-4 rounded-lg mt-4 shadow-md"
+          ></ul>
         </div>
 
         <!-- In Review -->
@@ -81,12 +77,7 @@
               + New Item
             </button>
           </div>
-          <ul
-            id="in-review-container"
-            class="bg-slate-50 flex flex-col p-4 rounded-lg mt-4 shadow-md"
-          >
-            <p>Quite empty...</p>
-          </ul>
+          <ul id="in-review" class="bg-slate-50 flex flex-col p-4 rounded-lg mt-4 shadow-md"></ul>
         </div>
 
         <!-- Finished -->
@@ -99,12 +90,7 @@
               + New Item
             </button>
           </div>
-          <ul
-            id="finished-container"
-            class="bg-slate-50 flex flex-col p-4 rounded-lg mt-4 shadow-md"
-          >
-            <p>Quite empty...</p>
-          </ul>
+          <ul id="finished" class="bg-slate-50 flex flex-col p-4 rounded-lg mt-4 shadow-md"></ul>
         </div>
       </section>
     </div>
