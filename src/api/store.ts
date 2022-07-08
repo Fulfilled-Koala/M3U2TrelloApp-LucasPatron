@@ -12,6 +12,3 @@ export function initializeStore(): void {
     render();
   }
 }
-
-// List Items
-export const LIST_ITEMS = Array.from(document.querySelectorAll('li'));
