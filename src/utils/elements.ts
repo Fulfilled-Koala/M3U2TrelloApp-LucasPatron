@@ -16,8 +16,8 @@ function getAllElements(query: string): NodeList {
   return els;
 }
 
-export function getAllListItems(): NodeList {
-  return getAllElements('li');
+export function getAllListItems(): NodeListOf<HTMLLIElement> {
+  return getAllElements('li') as NodeListOf<HTMLLIElement>;
 }
 
 // SAVE ALL MODAL
@@ -26,10 +26,10 @@ const saveAllModal = getElement('#save-all-modal') as HTMLDivElement;
 const saveAllModalClose = getElement('#save-all-modal-close') as HTMLButtonElement;
 
 // CONTAINERS
-const backlogContainer = getElement('#backlog-container') as HTMLUListElement;
-const wipContainer = getElement('#wip-container') as HTMLUListElement;
-const inReviewContainer = getElement('#in-review-container') as HTMLUListElement;
-const finishedContainer = getElement('#finished-container') as HTMLUListElement;
+const backlogContainer = getElement('#backlog') as HTMLUListElement;
+const wipContainer = getElement('#work-in-progress') as HTMLUListElement;
+const inReviewContainer = getElement('#in-review') as HTMLUListElement;
+const finishedContainer = getElement('#finished') as HTMLUListElement;
 
 // ADD TASK MODAL
 const addTaskModalButton = getElement('#add-task-modal-button') as HTMLButtonElement;
@@ -49,4 +49,5 @@ export const elements = {
   addTaskModalForm,
   addTaskModal,
   addTaskModalClose,
+  containers: [backlogContainer, wipContainer, inReviewContainer, finishedContainer],
 };
