@@ -15,15 +15,3 @@ export function initializeStore(): void {
 
 // List Items
 export const LIST_ITEMS = Array.from(document.querySelectorAll('li'));
-
-export function updateListItems(type: 'add' | 'remove'): void {
-  const listItems = LIST_ITEMS;
-  const newListItems = document.querySelectorAll('li');
-  for (const newListItem of newListItems) {
-    if (type === 'add') {
-      listItems.push(newListItem);
-    } else {
-      listItems.splice(listItems.indexOf(newListItem), 1);
-    }
-  }
-}
