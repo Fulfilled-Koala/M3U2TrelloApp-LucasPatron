@@ -6,6 +6,9 @@ export function setStatus(
   id: number,
   status: 'backlog' | 'work-in-progress' | 'in-review' | 'finished',
 ) {
+  if (!['backlog', 'work-in-progress', 'in-review', 'finished'].includes(status)) return;
+  if (isNaN(id)) return;
+
   const newTasks: TaskType[] = STORE.map((task: TaskType) => {
     if (task.id === id) {
       task.status = status;
