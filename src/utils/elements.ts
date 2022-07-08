@@ -20,34 +20,40 @@ export function getAllListItems(): NodeListOf<HTMLLIElement> {
   return getAllElements('li') as NodeListOf<HTMLLIElement>;
 }
 
-// SAVE ALL MODAL
-const saveButton = getElement('#save-all') as HTMLButtonElement;
-const saveAllModal = getElement('#save-all-modal') as HTMLDivElement;
-const saveAllModalClose = getElement('#save-all-modal-close') as HTMLButtonElement;
-
-// CONTAINERS
-const backlogContainer = getElement('#backlog') as HTMLUListElement;
-const wipContainer = getElement('#work-in-progress') as HTMLUListElement;
-const inReviewContainer = getElement('#in-review') as HTMLUListElement;
-const finishedContainer = getElement('#finished') as HTMLUListElement;
-
-// ADD TASK MODAL
-const addTaskModalButton = getElement('#add-task-modal-button') as HTMLButtonElement;
-const addTaskModalForm = getElement('#add-task-modal-form') as HTMLFormElement;
-const addTaskModal = getElement('#add-task-modal') as HTMLDivElement;
-const addTaskModalClose = getElement('#add-task-modal-close') as HTMLButtonElement;
-
 export const elements = {
-  saveButton,
-  backlogContainer,
-  wipContainer,
-  inReviewContainer,
-  finishedContainer,
-  saveAllModal,
-  saveAllModalClose,
-  addTaskModalButton,
-  addTaskModalForm,
-  addTaskModal,
-  addTaskModalClose,
-  containers: [backlogContainer, wipContainer, inReviewContainer, finishedContainer],
+  containers: {
+    backlogContainer: getElement('#backlog') as HTMLUListElement,
+    wipContainer: getElement('#work-in-progress') as HTMLUListElement,
+    inReviewContainer: getElement('#in-review') as HTMLUListElement,
+    finishedContainer: getElement('#finished') as HTMLUListElement,
+  },
+  saveAllModal: {
+    modal: getElement('#save-all-modal') as HTMLDivElement,
+    openButton: getElement('#save-all') as HTMLButtonElement,
+    closeButton: getElement('#save-all-modal-close') as HTMLButtonElement,
+  },
+  addTaskModal: {
+    modal: getElement('#add-task-modal') as HTMLDivElement,
+    inputs: {
+      description: getElement('#add-task-modal-description-input') as HTMLInputElement,
+      tags: getElement('#add-task-modal-tags-input') as HTMLInputElement,
+      priority: getElement('#add-task-modal-priority-select') as HTMLSelectElement,
+      status: getElement('#add-task-modal-status-select') as HTMLSelectElement,
+      dueDate: getElement('#add-task-modal-due-date-input') as HTMLInputElement,
+    },
+    form: getElement('#add-task-modal-form') as HTMLFormElement,
+    closeButton: getElement('#add-task-modal-close') as HTMLButtonElement,
+    openButton: getElement('#add-task-modal-button') as HTMLButtonElement,
+  },
+  editTaskModal: {
+    modal: getElement('#edit-task-modal') as HTMLDivElement,
+    submitButton: getElement('#edit-task-modal-submit') as HTMLButtonElement,
+    closeButton: getElement('#edit-task-modal-close') as HTMLButtonElement,
+    title: getElement('#edit-task-modal-title') as HTMLHeadingElement,
+    inputs: {
+      description: getElement('#edit-task-modal-description-input') as HTMLInputElement,
+      priority: getElement('#edit-task-modal-priority-input') as HTMLInputElement,
+      tags: getElement('#edit-task-modal-tags-input') as HTMLInputElement,
+    },
+  },
 };
