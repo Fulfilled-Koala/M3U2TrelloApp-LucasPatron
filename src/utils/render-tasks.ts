@@ -1,12 +1,15 @@
 import { STORE } from '../api/store';
 import { COLORS } from '../constants/colors';
 import { TaskType } from '../types/task-type';
+import { setDraggable } from './drag-and-drop';
 import { elements } from './elements';
 
 function createElement({ comments, date, description, priority, tags, id }: TaskType): Element {
   const li = document.createElement('li');
   li.className =
-    'bg-white flex flex-col gap-2 rounded-lg p-2 shadow transition-shadow ease-in-out hover:shadow-md';
+    'bg-white flex flex-col gap-2 rounded-lg p-2 shadow transition-shadow ease-in-out hover:shadow-md cursor-grab active:cursor-grabbing';
+  li.draggable = true;
+  li.id = String(id);
 
   const topDiv = document.createElement('div');
   topDiv.className = 'flex justify-between';
@@ -24,23 +27,7 @@ function createElement({ comments, date, description, priority, tags, id }: Task
     return;
   });
 
-  li.insertAdjacentHTML(
-    'beforeend',
-    `
-    <div class="flex justify-between">
-      <span>${tags.join(', ')}</span>
-      <span>edit</span>
-    </div>
-    <p>${description}</p>
-    <div class="flex justify-between">
-      <span>${date}</span>
-      
-      <div>
-        <span>${priority}</span>
-      </div>
-    </div>
-  `,
-  );
+  li.appendChild(topDiv);
 
   return li;
 }
@@ -48,9 +35,9 @@ function createElement({ comments, date, description, priority, tags, id }: Task
 export function render(): void {
   const { finishedContainer, inReviewContainer, wipContainer, backlogContainer } = elements;
   const containers = [finishedContainer, inReviewContainer, wipContainer, backlogContainer];
-  containers.forEach((container: HTMLUListElement) => {
+  for (const container of containers) {
     container.innerHTML = '';
-  });
+  }
 
   STORE.forEach((task: TaskType) => {
     switch (task.status) {
@@ -71,11 +58,11 @@ export function render(): void {
     }
   });
 
-  containers.forEach((container: HTMLUListElement) => {
+  for (const container of containers) {
     if (container.children.length === 0) {
-      const p = document.createElement('p');
-      p.textContent = 'No tasks to display';
-      container.appendChild(p);
+      container.innerHTML = '<p class="text-center font-medium text-red-600">No tasks found</p>';
     }
-  });
+  }
+  console.log('rendered');
+  setDraggable();
 }
