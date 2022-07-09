@@ -38,7 +38,6 @@ export function setAddTaskModalListeners() {
     addOne(task);
     modal.classList.add('hidden');
 
-    // Reset state
     inputs.description.value = '';
     inputs.priority.value = 'low';
     inputs.tags.value = '';
