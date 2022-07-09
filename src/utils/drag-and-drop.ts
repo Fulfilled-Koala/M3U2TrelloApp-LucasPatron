@@ -51,9 +51,12 @@ export function setDraggable() {
           // Remove 'hidden' class from drop zone if the container is not the one the item is in
           if (container !== listItem.parentElement) {
             dropZone.classList.remove('hidden');
+            dropZone.classList.add('flex');
           }
+
           container.classList.add('bg-blue-100');
           container.classList.remove('bg-slate-50');
+
           for (const child of container.children) {
             child.classList.add('pointer-events-none');
           }
@@ -81,8 +84,11 @@ export function setDraggable() {
         for (const container of containers) {
           const dropZone = container.parentElement.querySelector('.drop-zone');
           dropZone.classList.add('hidden');
+          dropZone.classList.remove('flex');
+
           container.classList.remove('bg-blue-100');
           container.classList.add('bg-slate-50');
+
           for (const child of container.children) {
             child.classList.remove('pointer-events-none');
           }
