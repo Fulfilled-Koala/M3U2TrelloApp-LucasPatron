@@ -1,5 +1,5 @@
-import { addOne } from '../api/add-one';
-import { STORE } from '../api/store';
+import { addOne } from '../store/add-one';
+import { STORE } from '../store/store';
 import { TaskType } from '../types/task-type';
 import { elements } from '../utils/elements';
 

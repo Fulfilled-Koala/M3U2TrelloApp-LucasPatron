@@ -1,4 +1,4 @@
-import { editOne } from '../api/edit-one';
+import { editOne } from '../store/edit-one';
 import { TaskType } from '../types/task-type';
 import { elements } from '../utils/elements';
 

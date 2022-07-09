@@ -1,7 +1,7 @@
 import { elements } from '../utils/elements';
 import { LOCAL_STORAGE_KEY } from '../constants/local-storage';
 import { render } from '../utils/render-tasks';
-import { STORE } from '../api/store';
+import { STORE } from '../store/store';
 
 const { closeButton, modal, openButton } = elements.clearAllModal;
 

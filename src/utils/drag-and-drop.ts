@@ -1,4 +1,4 @@
-import { setStatus } from '../api/set-status';
+import { setStatus } from '../store/set-status';
 import { elements, getAllListItems } from './elements';
 
 const containers: HTMLUListElement[] = [
