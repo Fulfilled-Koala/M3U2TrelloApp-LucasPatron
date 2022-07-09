@@ -1,4 +1,5 @@
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: 'production',
@@ -6,6 +7,7 @@ module.exports = {
   watchOptions: {
     ignored: /\.js$/,
   },
+  plugins: [new Dotenv()],
   module: {
     rules: [
       {
