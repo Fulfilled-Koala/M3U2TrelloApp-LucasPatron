@@ -1,5 +1,5 @@
 import './style.css';
-import { initializeStore } from './store/store';
+import initializeStore from './store';
 import initializeEventListeners from './modals';
 
 initializeStore();

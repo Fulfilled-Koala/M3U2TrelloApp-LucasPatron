@@ -1,4 +1,4 @@
-import { STORE } from '../store/store';
+import { STORE } from '../store';
 import SVGS from '../assets/svgs';
 import { setEditTaskModal } from '../modals/edit-task-modal';
 import { TaskType } from '../types/task-type';

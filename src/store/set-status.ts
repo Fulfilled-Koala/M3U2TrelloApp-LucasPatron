@@ -1,5 +1,5 @@
 import { LOCAL_STORAGE_KEY } from '../constants/local-storage';
-import { STORE } from './store';
+import { STORE } from '.';
 import { TaskType } from '../types/task-type';
 
 export function setStatus(
