@@ -27,10 +27,10 @@ export const elements = {
     inReviewContainer: getElement('#in-review') as HTMLUListElement,
     finishedContainer: getElement('#finished') as HTMLUListElement,
   },
-  saveAllModal: {
-    modal: getElement('#save-all-modal') as HTMLDivElement,
-    openButton: getElement('#save-all') as HTMLButtonElement,
-    closeButton: getElement('#save-all-modal-close') as HTMLButtonElement,
+  clearAllModal: {
+    modal: getElement('#clear-all-modal') as HTMLDivElement,
+    openButton: getElement('#clear-all') as HTMLButtonElement,
+    closeButton: getElement('#clear-all-modal-close') as HTMLButtonElement,
   },
   addTaskModal: {
     modal: getElement('#add-task-modal') as HTMLDivElement,

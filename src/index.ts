@@ -1,11 +1,11 @@
 import './style.css';
 import { initializeStore } from './api/store';
-import { setSaveAllModalListeners } from './modals/save-all-modal';
+import { setClearAllModalListeners } from './modals/clear-all-modal';
 import { setAddTaskModalListeners } from './modals/add-task-modal';
 import { setEditTaskModalListeners } from './modals/edit-task-modal';
 
 initializeStore();
 
-setSaveAllModalListeners();
+setClearAllModalListeners();
 setAddTaskModalListeners();
 setEditTaskModalListeners();
