@@ -110,14 +110,19 @@ export function render(): void {
     }
   });
 
+  let empty = 0;
   const containers = [finishedContainer, inReviewContainer, wipContainer, backlogContainer];
   for (const container of containers) {
     if (container.children.length === 0) {
+      empty++;
       container.insertAdjacentHTML(
         'afterbegin',
-        `<p class='no-tasks-found text-center font-medium text-red-500'>No tasks found</p>`,
+        `<p class='no-tasks-found text-center font-medium text-rose-500'>No tasks found</p>`,
       );
     }
   }
+
+  if (empty === containers.length) return;
+
   setDraggable();
 }
