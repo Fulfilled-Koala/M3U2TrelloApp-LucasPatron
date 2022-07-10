@@ -9,7 +9,7 @@
     class="min-h-screen select-none gap-2 bg-gradient-to-bl from-[#f0f6fc] via-[#fdf7fb] to-[#f6ffff] font-poppins dark:bg-[#1d1d1d] dark:bg-none"
   >
     <!-- Body -->
-    <div class="p-4">
+    <main class="p-4">
       <!-- Top Header -->
       <header
         class="flex items-center justify-between rounded bg-white px-12 py-6 shadow-md dark:bg-[#272727]"
@@ -39,7 +39,7 @@
         </div>
       </header>
 
-      <section class="mt-8 grid grid-cols-4 gap-4">
+      <section class="mt-8 grid grid-cols-1 justify-center gap-4 lg:grid-cols-3 xl:grid-cols-4">
         <!-- Backlog -->
         <div class="flex flex-col gap-1">
           <div
@@ -156,7 +156,7 @@
           ></ul>
         </div>
       </section>
-    </div>
+    </main>
 
     <!-- MODALS -->
     <!-- Clear All Modal -->
@@ -363,7 +363,7 @@
     <!-- Success -->
     <div
       id="toast-success"
-      class="m-4 flex w-full max-w-xs items-center rounded-lg bg-white p-4 text-gray-500 shadow dark:bg-neutral-800 dark:text-gray-300"
+      class="fixed bottom-0 -left-full m-4 hidden w-full max-w-xs items-center rounded-lg bg-white p-4 text-gray-500 shadow transition-all delay-500 ease-in-out dark:bg-neutral-800 dark:text-gray-300"
       role="alert"
     >
       <div
@@ -382,7 +382,7 @@
           ></path>
         </svg>
       </div>
-      <div class="ml-3 text-sm font-normal">Item moved successfully.</div>
+      <p id="toast-success-message" class="ml-3 text-sm font-normal"></p>
       <button
         type="button"
         class="-mx-1.5 -my-1.5 ml-auto inline-flex h-8 w-8 rounded-lg bg-white p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-neutral-800 dark:text-gray-500 dark:hover:bg-neutral-700 dark:hover:text-white"
@@ -407,7 +407,7 @@
     <!-- Danger -->
     <div
       id="toast-danger"
-      class="m-4 flex w-full max-w-xs items-center rounded-lg bg-white p-4 text-gray-500 shadow dark:bg-neutral-800 dark:text-gray-300"
+      class="fixed bottom-20 -left-full m-4 hidden w-full max-w-xs items-center rounded-lg bg-white p-4 text-gray-500 shadow transition-all delay-500 ease-in-out dark:bg-neutral-800 dark:text-gray-300"
       role="alert"
     >
       <div
@@ -426,7 +426,7 @@
           ></path>
         </svg>
       </div>
-      <div class="ml-3 text-sm font-normal">Item has been deleted.</div>
+      <p id="toast-danger-message" class="ml-3 text-sm font-normal"></p>
       <button
         type="button"
         class="-mx-1.5 -my-1.5 ml-auto inline-flex h-8 w-8 rounded-lg bg-white p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-neutral-800 dark:text-gray-500 dark:hover:bg-neutral-700 dark:hover:text-white"
