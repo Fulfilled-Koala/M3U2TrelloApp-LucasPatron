@@ -10,18 +10,18 @@ function createElement(task: TaskType): Element {
 
   const li = document.createElement('li');
   li.className =
-    'bg-white flex flex-col px-4 py-2 gap-4 rounded-lg shadow transition-shadow ease-in-out hover:shadow-md cursor-grab active:cursor-grabbing';
+    'bg-white flex flex-col px-4 py-2 gap-4 rounded-lg shadow transition-shadow ease-in-out hover:shadow-md cursor-grab active:cursor-grabbing dark:bg-[#1d1d1d]';
   li.draggable = true;
   li.id = String(id);
 
   const topDiv = document.createElement('div');
-  topDiv.className = 'flex justify-between items-center';
+  topDiv.className = 'flex justify-between items-center gap-4';
 
   const leftDiv = document.createElement('div');
   leftDiv.className = 'flex flex-col';
 
   const descriptionParagraph = document.createElement('p');
-  descriptionParagraph.className = `text-md font-medium text-black-500`;
+  descriptionParagraph.className = `text-md font-medium text-black-500 dark:text-neutral-200`;
   descriptionParagraph.textContent = description;
   leftDiv.appendChild(descriptionParagraph);
 
@@ -29,15 +29,15 @@ function createElement(task: TaskType): Element {
   dateSpan.insertAdjacentHTML(
     'beforeend',
     `
-    <span class="text-xs font-medium text-indigo-500">
-    Due on ${new Date(date).toLocaleDateString('en-US', {
+    <span class="text-xs font-medium text-indigo-500 dark:text-indigo-400">
+    Due on ${new Date(dueDate).toLocaleDateString('en-US', {
       weekday: 'long',
       month: 'long',
       day: 'numeric',
     })};
     </span>
-    <span class="text-xs font-regular text-neutral-600">
-      created on ${new Date(dueDate).toLocaleDateString('en-US', {
+    <span class="text-xs font-regular text-neutral-600 dark:text-neutral-200">
+      created on ${new Date(date).toLocaleDateString('en-US', {
         weekday: 'long',
         month: 'long',
         day: 'numeric',
@@ -71,9 +71,8 @@ function createElement(task: TaskType): Element {
   footerDiv.appendChild(tagsSpan);
 
   const prioritySpan = document.createElement('span');
-  const color = priority === 'high' ? '#ef4444' : priority === 'medium' ? '#f59e0b' : '#22c55e';
-  prioritySpan.className = `text-xs font-medium text-white px-2 py-1 rounded`;
-  prioritySpan.style.backgroundColor = color;
+  const color = priority === 'high' ? 'red' : priority === 'medium' ? 'orange' : 'green';
+  prioritySpan.className = `text-xs font-medium text-white px-2 py-1 rounded bg-${color}-500 dark:bg-${color}-400`;
   prioritySpan.textContent = priority;
   footerDiv.appendChild(prioritySpan);
 
