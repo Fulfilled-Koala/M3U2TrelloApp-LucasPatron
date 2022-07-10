@@ -1,4 +1,4 @@
-import { editOne } from '../store/edit-one';
+import httpPatchOne from '../api/patch-one';
 import { TaskType } from '../types/task-type';
 import { elements } from '../utils/elements';
 
@@ -18,7 +18,7 @@ export function setEditTaskModal(task: TaskType) {
   inputs.priority.value = priority;
   inputs.tags.value = tags.join(',');
 
-  submitButton.onclick = () => {
+  submitButton.onclick = async () => {
     if (!['high', 'medium', 'low'].includes(inputs.priority.value)) {
       return alert('Priority must be high, medium, or low');
     }
@@ -30,6 +30,6 @@ export function setEditTaskModal(task: TaskType) {
       tags: inputs.tags.value.split(','),
     };
 
-    editOne(newTask);
+    await httpPatchOne(newTask);
   };
 }

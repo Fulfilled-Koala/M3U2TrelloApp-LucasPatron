@@ -1,4 +1,4 @@
-import { addOne } from '../store/add-one';
+import httpPostOne from '../api/post-one';
 import { STORE } from '../store';
 import { TaskType } from '../types/task-type';
 import { elements } from '../utils/elements';
@@ -10,7 +10,7 @@ export function setAddTaskModalListeners() {
     modal.classList.remove('hidden');
   };
 
-  form.onsubmit = (e: SubmitEvent) => {
+  form.onsubmit = async (e: SubmitEvent) => {
     e.preventDefault();
     const {
       description: { value: descriptionValue },
@@ -35,7 +35,7 @@ export function setAddTaskModalListeners() {
       dueDate: new Date(dateValue).toISOString(),
     };
 
-    addOne(task);
+    await httpPostOne(task);
     modal.classList.add('hidden');
 
     inputs.description.value = '';
