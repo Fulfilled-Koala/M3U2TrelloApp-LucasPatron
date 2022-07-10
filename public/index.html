@@ -24,6 +24,34 @@
         </div>
         <div class="flex items-center gap-2 text-xs">
           <button
+            id="theme-toggle"
+            type="button"
+            class="rounded-lg p-2.5 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+          >
+            <svg
+              id="theme-toggle-dark-icon"
+              class="hidden h-5 w-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg
+              id="theme-toggle-light-icon"
+              class="hidden h-5 w-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+          <button
             type="button"
             id="add-task-modal-button"
             class="rounded border-b-4 border-blue-700 bg-blue-500 py-2 px-3 font-bold text-neutral-100 hover:border-blue-500 hover:bg-blue-400"
@@ -77,7 +105,7 @@
             <h1 class="text-xl font-medium">Work in Progress</h1>
           </div>
           <div
-            class="drop-zone mt-4 hidden animate-pulse justify-center border-4 border-dotted border-blue-500 bg-blue-50 p-8"
+            class="drop-zone dark_border-blue-700 mt-4 hidden animate-pulse justify-center border-4 border-dotted border-blue-600 bg-blue-50 p-8 dark:bg-neutral-700"
           >
             <svg
               class="pointer-events-none animate-bounce fill-blue-500 dark:fill-blue-600"
@@ -106,7 +134,7 @@
             <h1 class="text-xl font-medium">In Review</h1>
           </div>
           <div
-            class="drop-zone mt-4 hidden animate-pulse justify-center border-4 border-dotted border-blue-500 bg-blue-50 p-8"
+            class="drop-zone dark_border-blue-700 mt-4 hidden animate-pulse justify-center border-4 border-dotted border-blue-600 bg-blue-50 p-8 dark:bg-neutral-700"
           >
             <svg
               class="pointer-events-none animate-bounce"
@@ -135,7 +163,7 @@
             <h1 class="text-xl font-medium">Finished</h1>
           </div>
           <div
-            class="drop-zone mt-4 hidden animate-pulse justify-center border-4 border-dotted border-blue-500 bg-blue-50 p-8"
+            class="drop-zone dark_border-blue-700 mt-4 hidden animate-pulse justify-center border-4 border-dotted border-blue-600 bg-blue-50 p-8 dark:bg-neutral-700"
           >
             <svg
               class="pointer-events-none animate-bounce"
@@ -363,7 +391,7 @@
     <!-- Success -->
     <div
       id="toast-success"
-      class="fixed bottom-0 -left-full m-4 hidden w-full max-w-xs items-center rounded-lg bg-white p-4 text-gray-500 shadow transition-all delay-500 ease-in-out dark:bg-neutral-800 dark:text-gray-300"
+      class="fixed bottom-0 -left-full m-4 hidden w-full max-w-xs items-center rounded-lg bg-white p-4 text-gray-500 shadow dark:bg-neutral-800 dark:text-gray-300"
       role="alert"
     >
       <div
@@ -407,7 +435,7 @@
     <!-- Danger -->
     <div
       id="toast-danger"
-      class="fixed bottom-20 -left-full m-4 hidden w-full max-w-xs items-center rounded-lg bg-white p-4 text-gray-500 shadow transition-all delay-500 ease-in-out dark:bg-neutral-800 dark:text-gray-300"
+      class="fixed bottom-20 -left-full m-4 hidden w-full max-w-xs items-center rounded-lg bg-white p-4 text-gray-500 shadow dark:bg-neutral-800 dark:text-gray-300"
       role="alert"
     >
       <div
