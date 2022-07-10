@@ -1,4 +1,4 @@
-import { setStatus } from '../store/set-status';
+import httpPatchStatus from '../api/patch-status';
 import { elements, getAllListItems } from './elements';
 
 const containers: HTMLUListElement[] = [
@@ -67,16 +67,8 @@ export function setDraggable() {
       }, 0);
     };
 
-    listItem.ondragend = () => {
+    listItem.ondragend = async () => {
       setTimeout(() => {
-        const id = Number(listItem.id);
-        const status = listItem.parentElement.id as
-          | 'backlog'
-          | 'work-in-progress'
-          | 'in-review'
-          | 'finished';
-        setStatus(id, status);
-
         listItem.style.display = 'flex';
         draggedItem = null;
 
@@ -94,6 +86,15 @@ export function setDraggable() {
           }
         }
       }, 0);
+
+      // Make request to update the status of the task
+      const id = Number(listItem.id);
+      const status = listItem.parentElement.id as
+        | 'backlog'
+        | 'work-in-progress'
+        | 'in-review'
+        | 'finished';
+      await httpPatchStatus(id, status);
     };
   }
 
