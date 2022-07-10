@@ -6,7 +6,7 @@ import { setDraggable } from './drag-and-drop';
 import { elements } from './elements';
 
 function createElement(task: TaskType): Element {
-  const { comments, date, description, priority, tags, id, dueDate } = task;
+  const { comments, date, description, priority, tag, id, dueDate } = task;
 
   const li = document.createElement('li');
   li.className =
@@ -67,7 +67,10 @@ function createElement(task: TaskType): Element {
 
   const tagsSpan = document.createElement('span');
   tagsSpan.className = 'text-xs font-medium text-white px-2 py-1 rounded bg-indigo-500';
-  tagsSpan.textContent = tags.join(', ');
+  tagsSpan.textContent = tag
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
   footerDiv.appendChild(tagsSpan);
 
   const prioritySpan = document.createElement('span');
