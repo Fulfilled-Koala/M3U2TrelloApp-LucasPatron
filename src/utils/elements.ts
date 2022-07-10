@@ -61,10 +61,12 @@ export const elements = {
     success: {
       toast: getElement('#toast-success') as HTMLDivElement,
       closeButton: getElement('#toast-success-close') as HTMLButtonElement,
+      message: getElement('#toast-success-message') as HTMLParagraphElement,
     },
     error: {
       toast: getElement('#toast-danger') as HTMLDivElement,
       closeButton: getElement('#toast-danger-close') as HTMLButtonElement,
+      message: getElement('#toast-danger-message') as HTMLParagraphElement,
     },
   },
 };

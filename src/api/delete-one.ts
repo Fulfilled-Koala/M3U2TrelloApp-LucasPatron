@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { STORE } from '../store';
+import showErrorToast from '../toasts/error';
+import showSuccessToast from '../toasts/success';
 import { render } from '../utils/render-tasks';
 
 export default async function httpDeleteOne(id: number) {
@@ -11,7 +13,9 @@ export default async function httpDeleteOne(id: number) {
       1,
     );
     render();
+    showSuccessToast('Successfully deleted task');
   } else {
     console.error(request.statusText);
+    showErrorToast('Failed to delete task');
   }
 }

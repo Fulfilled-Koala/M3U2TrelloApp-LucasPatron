@@ -1,5 +1,7 @@
 import { STORE } from '../store';
 import axios from 'axios';
+import showSuccessToast from '../toasts/success';
+import showErrorToast from '../toasts/error';
 
 export default async function httpPatchStatus(
   id: number,
@@ -17,7 +19,9 @@ export default async function httpPatchStatus(
         task.status = status;
       }
     }
+    showSuccessToast('Successfully updated task');
   } else {
     console.error(request.statusText);
+    showErrorToast('Failed to update task');
   }
 }
