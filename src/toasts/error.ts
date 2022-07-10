@@ -1,27 +1,19 @@
 import { elements } from '../utils/elements';
+import { showToast } from './utility/show-toast';
 
 const { toast, closeButton, message } = elements.toasts.error;
 
 export default function showErrorToast(prompt: string) {
-  message.textContent = prompt;
-  toast.classList.remove('hidden', '-left-full');
-  toast.classList.add('flex', 'left-0');
-
   closeButton.onclick = () => {
-    toast.classList.add('-left-full');
-    toast.classList.remove('left-0');
-    setTimeout(() => {
-      toast.classList.add('hidden');
-      toast.classList.remove('flex');
-    }, 3000);
+    toast.classList.add('-left-full', 'hidden');
+    toast.classList.remove('left-0', 'flex');
   };
 
-  setTimeout(() => {
-    toast.classList.add('-left-full');
-    toast.classList.remove('left-0');
+  if (toast.classList.contains('flex')) {
     setTimeout(() => {
-      toast.classList.add('hidden');
-      toast.classList.remove('flex');
+      showToast(prompt, toast, message);
     }, 3000);
-  }, 3000);
+    return;
+  }
+  showToast(prompt, toast, message);
 }
