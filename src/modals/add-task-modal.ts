@@ -22,7 +22,7 @@ export function setAddTaskModalListeners() {
 
     const task: TaskType = {
       id: STORE.length + 1,
-      tags: tagsValue.split(',').map((tag) => tag.trim()),
+      tag: tagsValue,
       description: descriptionValue,
       comments: [],
       priority: ['low', 'medium', 'high'].includes(priorityValue)

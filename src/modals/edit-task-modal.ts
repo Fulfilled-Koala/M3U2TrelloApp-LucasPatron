@@ -12,12 +12,12 @@ export function setEditTaskModalListeners() {
 }
 
 export function setEditTaskModal(task: TaskType) {
-  const { description, priority, tags } = task;
+  const { description, priority, tag } = task;
   modal.classList.remove('hidden');
   title.innerHTML = `<span class='text-black text-xs dark:text-white'>CURRENTLY EDITING:</span> ${description}`;
   inputs.description.value = description;
   inputs.priority.value = priority;
-  inputs.tags.value = tags.join(',');
+  inputs.tag.value = tag;
 
   submitButton.onclick = async () => {
     if (!['high', 'medium', 'low'].includes(inputs.priority.value)) {
@@ -28,7 +28,7 @@ export function setEditTaskModal(task: TaskType) {
       ...task,
       description: inputs.description.value,
       priority: inputs.priority.value as 'low' | 'medium' | 'high',
-      tags: inputs.tags.value.split(','),
+      tag,
     };
 
     await httpPatchOne(newTask);

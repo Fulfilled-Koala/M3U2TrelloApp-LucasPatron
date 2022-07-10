@@ -54,7 +54,7 @@ export const elements = {
     inputs: {
       description: getElement('#edit-task-modal-description-input') as HTMLInputElement,
       priority: getElement('#edit-task-modal-priority-input') as HTMLInputElement,
-      tags: getElement('#edit-task-modal-tags-input') as HTMLInputElement,
+      tag: getElement('#edit-task-modal-tags-input') as HTMLInputElement,
     },
   },
   toasts: {
@@ -68,5 +68,10 @@ export const elements = {
       closeButton: getElement('#toast-danger-close') as HTMLButtonElement,
       message: getElement('#toast-danger-message') as HTMLParagraphElement,
     },
+  },
+  theme: {
+    toggle: getElement('#theme-toggle') as HTMLButtonElement,
+    dark: getElement('#theme-toggle-dark-icon') as SVGElement,
+    light: getElement('#theme-toggle-light-icon') as SVGElement,
   },
 };
