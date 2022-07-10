@@ -1,15 +1,15 @@
 import { elements } from '../utils/elements';
-import { LOCAL_STORAGE_KEY } from '../constants/local-storage';
 import { render } from '../utils/render-tasks';
 import { STORE } from '../store';
+import { httpDeleteAll } from '../api/delete-all';
 
 const { closeButton, modal, openButton } = elements.clearAllModal;
 
 export function setClearAllModalListeners() {
   openButton.onclick = () => {
     modal.classList.remove('hidden');
-    window.localStorage.removeItem(LOCAL_STORAGE_KEY);
     STORE.length = 0;
+    httpDeleteAll();
     render();
   };
 
