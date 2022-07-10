@@ -49,11 +49,22 @@ export const elements = {
     modal: getElement('#edit-task-modal') as HTMLDivElement,
     submitButton: getElement('#edit-task-modal-submit') as HTMLButtonElement,
     closeButton: getElement('#edit-task-modal-close') as HTMLButtonElement,
+    deleteButton: getElement('#edit-task-modal-delete') as HTMLButtonElement,
     title: getElement('#edit-task-modal-title') as HTMLHeadingElement,
     inputs: {
       description: getElement('#edit-task-modal-description-input') as HTMLInputElement,
       priority: getElement('#edit-task-modal-priority-input') as HTMLInputElement,
       tags: getElement('#edit-task-modal-tags-input') as HTMLInputElement,
+    },
+  },
+  toasts: {
+    success: {
+      toast: getElement('#toast-success') as HTMLDivElement,
+      closeButton: getElement('#toast-success-close') as HTMLButtonElement,
+    },
+    error: {
+      toast: getElement('#toast-danger') as HTMLDivElement,
+      closeButton: getElement('#toast-danger-close') as HTMLButtonElement,
     },
   },
 };
