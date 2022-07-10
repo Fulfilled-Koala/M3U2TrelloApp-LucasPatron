@@ -94,7 +94,10 @@ export function setDraggable() {
         | 'work-in-progress'
         | 'in-review'
         | 'finished';
-      await httpPatchStatus(id, status);
+
+      if (previousContainer !== listItem.parentElement) {
+        await httpPatchStatus(id, status);
+      }
     };
   }
 
