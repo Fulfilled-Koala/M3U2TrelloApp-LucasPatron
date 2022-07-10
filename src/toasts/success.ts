@@ -1,18 +1,27 @@
 import { elements } from '../utils/elements';
 
-const { toast, closeButton } = elements.toasts.success;
+const { toast, closeButton, message } = elements.toasts.success;
 
-export default function showSuccessToast() {
-  toast.classList.add('hidden');
-  toast.classList.remove('flex');
+export default function showSuccessToast(prompt: string) {
+  message.textContent = prompt;
+  toast.classList.remove('hidden', '-left-full');
+  toast.classList.add('flex', 'left-0');
 
   closeButton.onclick = () => {
-    toast.classList.remove('hidden');
-    toast.classList.add('flex');
+    toast.classList.add('-left-full');
+    toast.classList.remove('left-0');
+    setTimeout(() => {
+      toast.classList.add('hidden');
+      toast.classList.remove('flex');
+    }, 3000);
   };
 
   setTimeout(() => {
-    toast.classList.remove('hidden');
-    toast.classList.add('flex');
+    toast.classList.add('-left-full');
+    toast.classList.remove('left-0');
+    setTimeout(() => {
+      toast.classList.add('hidden');
+      toast.classList.remove('flex');
+    }, 3000);
   }, 3000);
 }
