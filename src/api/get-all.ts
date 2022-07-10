@@ -1,9 +1,7 @@
 import { TaskType } from '../types/task-type';
+import axios from 'axios';
 
 export async function httpGetAll(): Promise<TaskType[]> {
-  const response = await fetch(process.env.API_ROOT, {
-    method: 'GET',
-  });
-  const json = await response.json();
-  return json as TaskType[];
+  const response = (await axios.get(process.env.API_ROOT)).data as { tasks: TaskType[] };
+  return response.tasks;
 }
