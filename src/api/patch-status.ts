@@ -13,7 +13,6 @@ export default async function httpPatchStatus(
   const request = await axios.patch(`${process.env.API_ROOT}/status/${id}`, { status });
   if (request.status === 200) {
     const { id, status } = request.data.task;
-
     for (const task of STORE) {
       if (task.id === id) {
         task.status = status;
