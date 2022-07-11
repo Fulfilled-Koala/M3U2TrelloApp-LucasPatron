@@ -1,5 +1,7 @@
 # Trello Clone
 
+![Gif](./Final.gif)
+
 ## Project Overview
 
 This project is a clone of the Trello app, using Webpack as the module bundler, TypeScript as the programming language (compiled to the [bundle JS file](./public/bundle.js)), and Tailwind CSS for styling.
