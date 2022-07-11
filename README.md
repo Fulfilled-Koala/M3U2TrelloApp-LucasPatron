@@ -51,10 +51,12 @@ Inside the project, you will find the following directories:
 
 Within the `src` directory, you will find the following directories:
 
-- [api](./src/store/): The `store` directory contains the storage implementation by using the browser's Local Storage to simulate a database.
+- [api](./src/api/): The `api` directory contains all of the HTTP requests to the server.
 - [assets](./src/assets/): The `assets` directory contains the svg's and other assets to be used in the application.
 - [constants](./src/constants/): The `constants` directory contains the constants used in the application.
 - [modals](./src/modals/): The `modals` directory contains the functionality for all of the existing modals, which append an Event Listener to them (invoked by the root file [index.ts](./src/index.ts)).
+- [store](./src/store/): The `store` directory contains the initialization of the store within JavaScript's memory.
+- [toasts](./src/toasts/): The `toasts` directory contains all of the notification popups (successful & unsuccessful).
 - [types](./src/types/): The `types` directory contains the definition for the TypeScript types used in the application.
 - [utils](./src/utils/): The `utils` directory contains utility functions used in the application:
   - [Drag and Drop](./src/utils/drag-and-drop.ts) functionality without using a third-party library.
