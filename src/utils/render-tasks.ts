@@ -4,9 +4,14 @@ import { setEditTaskModal } from '../modals/edit-task-modal';
 import { TaskType } from '../types/task-type';
 import { setDraggable } from './drag-and-drop';
 import { elements } from './elements';
+import { setCommentModal } from '../modals/comments-modal';
 
 function createElement(task: TaskType): Element {
-  const { comments, date, description, priority, tag, id, dueDate } = task;
+  const { date, description, priority, tag, id, dueDate } = task;
+  const dateObj = new Date(date);
+  const dueDateObj = new Date(dueDate);
+  dateObj.setDate(dateObj.getDate() + 1);
+  dueDateObj.setDate(dueDateObj.getDate() + 1);
 
   const li = document.createElement('li');
   li.className =
@@ -30,14 +35,14 @@ function createElement(task: TaskType): Element {
     'beforeend',
     `
     <span class="text-xs font-medium text-indigo-500 dark:text-indigo-400">
-    Due on ${new Date(dueDate).toLocaleDateString('en-US', {
+    Due on ${new Date(dueDateObj).toLocaleDateString('en-US', {
       weekday: 'long',
       month: 'long',
       day: 'numeric',
     })};
     </span>
     <span class="text-xs font-regular text-neutral-600 dark:text-neutral-200">
-      created on ${new Date(date).toLocaleDateString('en-US', {
+      created on ${new Date(dateObj).toLocaleDateString('en-US', {
         weekday: 'long',
         month: 'long',
         day: 'numeric',
@@ -48,12 +53,24 @@ function createElement(task: TaskType): Element {
 
   topDiv.appendChild(leftDiv);
 
+  const rightDiv = document.createElement('div');
+  rightDiv.className = 'flex gap-2';
+
+  const commentButton = document.createElement('button');
+  commentButton.className = 'text-gray-600 hover:text-gray-700';
+  commentButton.innerHTML = SVGS.comments;
+  commentButton.type = 'button';
+  commentButton.onclick = () => setCommentModal(task);
+  rightDiv.appendChild(commentButton);
+
   const editButton = document.createElement('button');
   editButton.className = 'text-gray-600 hover:text-gray-700';
   editButton.innerHTML = SVGS.edit;
   editButton.type = 'button';
   editButton.onclick = () => setEditTaskModal(task);
-  topDiv.appendChild(editButton);
+  rightDiv.appendChild(editButton);
+
+  topDiv.appendChild(rightDiv);
 
   li.appendChild(topDiv);
 
