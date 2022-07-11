@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Trello Clone</title>
-    <script src="./bundle.js" async defer></script>
+    <script src="./bundle.js" defer></script>
   </head>
   <body
     class="min-h-screen select-none gap-2 bg-gradient-to-bl from-[#f0f6fc] via-[#fdf7fb] to-[#f6ffff] font-poppins dark:bg-[#1d1d1d] dark:bg-none"
@@ -368,6 +368,16 @@
           </select>
         </label>
 
+        <label class="flex flex-col">
+          Due Date
+          <input
+            required
+            id="edit-task-modal-due-date-input"
+            class="rounded border p-1 shadow-sm focus:outline-none dark:border-none dark:bg-[#373737]"
+            type="date"
+          />
+        </label>
+
         <div class="flex items-center gap-2 px-4 py-3">
           <button
             type="submit"
@@ -474,6 +484,59 @@
           ></path>
         </svg>
       </button>
+    </div>
+
+    <!-- COMMENT SECTION -->
+    <div
+      id="comment-modal"
+      class="absolute top-1/2 left-1/2 hidden max-w-screen-sm -translate-x-1/2 -translate-y-1/2 transform rounded-md bg-neutral-50 px-6 py-4 antialiased shadow-lg dark:bg-[#272727]"
+    >
+      <h3 class="mb-4 text-lg font-semibold text-gray-900 dark:text-neutral-200">Comments</h3>
+
+      <ul id="comment-section" class="flex max-h-96 flex-col gap-2 overflow-auto pr-4"></ul>
+
+      <form
+        class="flex w-full max-w-xl flex-col gap-2 rounded-lg bg-inherit px-4 pt-2 dark:text-neutral-200"
+      >
+        <h1 class="mt-2 font-medium">
+          Add a new comment <span class="text-xs text-neutral-400">150 characters maximum</span>
+        </h1>
+        <input
+          id="comment-username-input"
+          type="text"
+          placeholder="Username"
+          class="rounded border px-2 py-1 shadow-sm focus:outline-none dark:border-none dark:bg-[#373737]"
+        />
+        <textarea
+          id="comment-textarea"
+          type="text"
+          class="rounded border px-2 py-1 shadow-sm focus:outline-none dark:border-none dark:bg-[#373737]"
+          placeholder="Add your comment..."
+          required
+        ></textarea>
+        <span
+          id="comment-characters-remaining"
+          class="text-xs font-medium text-indigo-500 dark:text-indigo-400"
+          >0/150</span
+        >
+        <div class="flex items-center justify-center gap-2">
+          <button
+            id="comment-submit"
+            type="button"
+            disabled
+            class="rounded border-b-4 border-blue-700 bg-blue-500 py-2 px-3 text-xs font-bold text-neutral-100 hover:border-blue-500 hover:bg-blue-400 disabled:border-neutral-700 disabled:bg-neutral-500 disabled:hover:border-none"
+          >
+            + Add Comment
+          </button>
+          <button
+            type="button"
+            id="comment-cancel"
+            class="rounded border-b-4 border-rose-700 bg-rose-500 py-2 px-3 text-xs font-bold text-neutral-100 hover:border-rose-500 hover:bg-rose-400"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
     </div>
   </body>
 </html>
