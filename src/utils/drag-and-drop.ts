@@ -14,7 +14,7 @@ function appendPlaceholder(container: HTMLUListElement) {
   if (!container.querySelector('.placeholder') && !container.contains(draggedItem)) {
     const placeholder = document.createElement('li');
     placeholder.className =
-      'placeholder opacity-50 bg-white flex flex-col gap-2 rounded-lg p-2 pointer-events-none';
+      'placeholder bg-white opacity-50 flex flex-col px-4 py-2 gap-4 rounded-lg shadow transition-shadow ease-in-out hover:shadow-md cursor-grab active:cursor-grabbing dark:bg-[#1d1d1d]';
     placeholder.insertAdjacentHTML('afterbegin', draggedItem.innerHTML);
     container.appendChild(placeholder);
   }
