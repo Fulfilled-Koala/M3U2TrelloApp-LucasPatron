@@ -1,0 +1,16 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "no-unused-vars": "warn",
+    "capitalized-comments": "warn",
+    "arrow-parens": "warn",
+    "no-confusing-arrow": "warn",
+    "no-unused-expressions": "warn",
+    "block-scoped-var": "error",
+    "camelcase": "error"
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "latest"
+  }
+}

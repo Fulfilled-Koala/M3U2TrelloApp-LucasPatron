@@ -1,30 +1,30 @@
-import httpPatchComment from '../api/patch-comment';
-import showErrorToast from '../toasts/error';
-import { TaskType } from '../types/task-type';
-import { elements } from '../utils/elements';
+import httpPatchComment from "../api/patch/patch-comment";
+import showErrorToast from "../toasts/error";
+import { Task } from "../types/task-type";
+import { elements } from "../utils/elements";
 
 const { cancel, charactersRemaining, commentsContainer, inputs, modal, submit } = elements.comments;
 
 function invalidInput(comment: string, username: string): boolean {
-  if (comment === '' || username === '') return true;
+  if (comment === "" || username === "") return true;
   if (comment.length > 150) return true;
-  if (comment.split(' ').filter((word: string) => word.length > 20).length > 0) return true;
+  if (comment.split(" ").filter((word: string) => word.length > 20).length > 0) return true;
   return false;
 }
 
 function resetState() {
-  inputs.textarea.value = '';
-  inputs.username.value = '';
+  inputs.textarea.value = "";
+  inputs.username.value = "";
   charactersRemaining.textContent = `0/150`;
-  commentsContainer.innerHTML = '';
+  commentsContainer.innerHTML = "";
 }
 
-function loadComments(task: TaskType) {
-  commentsContainer.innerHTML = '';
+function loadComments(task: Task) {
+  commentsContainer.innerHTML = "";
   for (const { comment, username, publishedAt } of task.comments) {
     const publishedAtString = new Date(publishedAt).toLocaleTimeString([], {
-      hour: '2-digit',
-      minute: '2-digit',
+      hour: "2-digit",
+      minute: "2-digit",
       hour12: true,
     });
 
@@ -41,16 +41,16 @@ function loadComments(task: TaskType) {
           </div>
         </li>
   `;
-    commentsContainer.insertAdjacentHTML('beforeend', li);
+    commentsContainer.insertAdjacentHTML("beforeend", li);
   }
 }
 
-export function setCommentModal(task: TaskType) {
-  modal.classList.remove('hidden');
+export function setCommentModal(task: Task) {
+  modal.classList.remove("hidden");
 
   cancel.onclick = () => {
     resetState();
-    modal.classList.add('hidden');
+    modal.classList.add("hidden");
   };
 
   if (task.comments.length === 0) {
@@ -60,8 +60,8 @@ export function setCommentModal(task: TaskType) {
     loadComments(task);
   }
 
-  let commentInput = '';
-  let usernameInput = '';
+  let commentInput = "";
+  let usernameInput = "";
 
   inputs.textarea.oninput = (e: Event) => {
     commentInput = (e.target as HTMLTextAreaElement).value;
@@ -70,11 +70,11 @@ export function setCommentModal(task: TaskType) {
     submit.disabled = invalidInput(commentInput, usernameInput);
 
     if (commentInput.length > 150) {
-      charactersRemaining.classList.add('text-red-500', 'dark:text-red-400');
-      charactersRemaining.classList.remove('text-indigo-500', 'dark:text-indigo-400');
+      charactersRemaining.classList.add("text-red-500", "dark:text-red-400");
+      charactersRemaining.classList.remove("text-indigo-500", "dark:text-indigo-400");
     } else {
-      charactersRemaining.classList.remove('text-red-500', 'dark:text-red-400');
-      charactersRemaining.classList.add('text-indigo-500', 'dark:text-indigo-400');
+      charactersRemaining.classList.remove("text-red-500", "dark:text-red-400");
+      charactersRemaining.classList.add("text-indigo-500", "dark:text-indigo-400");
     }
   };
 
@@ -85,7 +85,7 @@ export function setCommentModal(task: TaskType) {
 
   submit.onclick = async () => {
     if (invalidInput(inputs.textarea.value, inputs.username.value))
-      return showErrorToast('Please fill in all fields');
+      return showErrorToast("Please fill in all fields");
 
     const updatedTask = await httpPatchComment(task.id, {
       username: inputs.username.value,

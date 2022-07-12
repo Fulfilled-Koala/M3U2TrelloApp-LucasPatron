@@ -1,4 +1,4 @@
-export type TaskType = {
+export type Task = {
   id: number;
   tag: string;
   description: string;
@@ -9,6 +9,6 @@ export type TaskType = {
   }[];
   date: string;
   dueDate: string;
-  priority: 'low' | 'medium' | 'high';
-  status: 'backlog' | 'work-in-progress' | 'in-review' | 'finished';
+  priority: "low" | "medium" | "high";
+  status: "backlog" | "work-in-progress" | "in-review" | "finished";
 };

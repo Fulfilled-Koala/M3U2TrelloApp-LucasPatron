@@ -1,5 +1,5 @@
-function getElement(query: string): Element {
-  const el = document.querySelector(query);
+function getHTMLElement<T extends HTMLElement>(query: string): T {
+  const el = document.querySelector<T>(query);
   if (!el) {
     alert(`Element not found: ${query}`);
     throw new Error(`Element not found: ${query}`);
@@ -7,8 +7,17 @@ function getElement(query: string): Element {
   return el;
 }
 
-function getAllElements(query: string): NodeList {
-  const els = document.querySelectorAll(query);
+function getElement<T extends Element>(query: string): T {
+  const el = document.querySelector<T>(query);
+  if (!el) {
+    alert(`Element not found: ${query}`);
+    throw new Error(`Element not found: ${query}`);
+  }
+  return el;
+}
+
+function getAllElements<T extends HTMLElement>(query: string): NodeListOf<T> {
+  const els = document.querySelectorAll<T>(query);
   if (!els.length) {
     alert(`No elements found: ${query}`);
     throw new Error(`No elements found: ${query}`);
@@ -17,73 +26,73 @@ function getAllElements(query: string): NodeList {
 }
 
 export function getAllListItems(): NodeListOf<HTMLLIElement> {
-  return getAllElements('li') as NodeListOf<HTMLLIElement>;
+  return getAllElements("li") as NodeListOf<HTMLLIElement>;
 }
 
 export const elements = {
   containers: {
-    backlogContainer: getElement('#backlog') as HTMLUListElement,
-    wipContainer: getElement('#work-in-progress') as HTMLUListElement,
-    inReviewContainer: getElement('#in-review') as HTMLUListElement,
-    finishedContainer: getElement('#finished') as HTMLUListElement,
+    backlogContainer: getHTMLElement<HTMLUListElement>("#backlog"),
+    wipContainer: getHTMLElement<HTMLUListElement>("#work-in-progress"),
+    inReviewContainer: getHTMLElement<HTMLUListElement>("#in-review"),
+    finishedContainer: getHTMLElement<HTMLUListElement>("#finished"),
   },
   clearAllModal: {
-    modal: getElement('#clear-all-modal') as HTMLDivElement,
-    openButton: getElement('#clear-all') as HTMLButtonElement,
-    closeButton: getElement('#clear-all-modal-close') as HTMLButtonElement,
+    modal: getHTMLElement<HTMLDivElement>("#clear-all-modal"),
+    openButton: getHTMLElement<HTMLButtonElement>("#clear-all"),
+    closeButton: getHTMLElement<HTMLButtonElement>("#clear-all-modal-close"),
   },
   addTaskModal: {
-    modal: getElement('#add-task-modal') as HTMLDivElement,
+    modal: getHTMLElement<HTMLDivElement>("#add-task-modal"),
     inputs: {
-      description: getElement('#add-task-modal-description-input') as HTMLInputElement,
-      tags: getElement('#add-task-modal-tags-input') as HTMLInputElement,
-      priority: getElement('#add-task-modal-priority-select') as HTMLSelectElement,
-      status: getElement('#add-task-modal-status-select') as HTMLSelectElement,
-      dueDate: getElement('#add-task-modal-due-date-input') as HTMLInputElement,
+      description: getHTMLElement<HTMLInputElement>("#add-task-modal-description-input"),
+      tags: getHTMLElement<HTMLInputElement>("#add-task-modal-tags-input"),
+      priority: getHTMLElement<HTMLSelectElement>("#add-task-modal-priority-select"),
+      status: getHTMLElement<HTMLSelectElement>("#add-task-modal-status-select"),
+      dueDate: getHTMLElement<HTMLInputElement>("#add-task-modal-due-date-input"),
     },
-    form: getElement('#add-task-modal-form') as HTMLFormElement,
-    closeButton: getElement('#add-task-modal-close') as HTMLButtonElement,
-    openButton: getElement('#add-task-modal-button') as HTMLButtonElement,
+    form: getHTMLElement<HTMLFormElement>("#add-task-modal-form"),
+    closeButton: getHTMLElement<HTMLButtonElement>("#add-task-modal-close"),
+    openButton: getHTMLElement<HTMLButtonElement>("#add-task-modal-button"),
   },
   editTaskModal: {
-    modal: getElement('#edit-task-modal') as HTMLDivElement,
-    submitButton: getElement('#edit-task-modal-submit') as HTMLButtonElement,
-    closeButton: getElement('#edit-task-modal-close') as HTMLButtonElement,
-    deleteButton: getElement('#edit-task-modal-delete') as HTMLButtonElement,
-    title: getElement('#edit-task-modal-title') as HTMLHeadingElement,
+    modal: getHTMLElement<HTMLDivElement>("#edit-task-modal"),
+    submitButton: getHTMLElement<HTMLButtonElement>("#edit-task-modal-submit"),
+    closeButton: getHTMLElement<HTMLButtonElement>("#edit-task-modal-close"),
+    deleteButton: getHTMLElement<HTMLButtonElement>("#edit-task-modal-delete"),
+    title: getHTMLElement<HTMLHeadingElement>("#edit-task-modal-title"),
     inputs: {
-      description: getElement('#edit-task-modal-description-input') as HTMLInputElement,
-      priority: getElement('#edit-task-modal-priority-input') as HTMLInputElement,
-      tag: getElement('#edit-task-modal-tags-input') as HTMLInputElement,
-      dueDate: getElement('#edit-task-modal-due-date-input') as HTMLInputElement,
+      description: getHTMLElement<HTMLInputElement>("#edit-task-modal-description-input"),
+      priority: getHTMLElement<HTMLInputElement>("#edit-task-modal-priority-input"),
+      tag: getHTMLElement<HTMLInputElement>("#edit-task-modal-tags-input"),
+      dueDate: getHTMLElement<HTMLInputElement>("#edit-task-modal-due-date-input"),
     },
   },
   toasts: {
     success: {
-      toast: getElement('#toast-success') as HTMLDivElement,
-      closeButton: getElement('#toast-success-close') as HTMLButtonElement,
-      message: getElement('#toast-success-message') as HTMLParagraphElement,
+      toast: getHTMLElement<HTMLDivElement>("#toast-success"),
+      closeButton: getHTMLElement<HTMLButtonElement>("#toast-success-close"),
+      message: getHTMLElement<HTMLParagraphElement>("#toast-success-message"),
     },
     error: {
-      toast: getElement('#toast-danger') as HTMLDivElement,
-      closeButton: getElement('#toast-danger-close') as HTMLButtonElement,
-      message: getElement('#toast-danger-message') as HTMLParagraphElement,
+      toast: getHTMLElement<HTMLDivElement>("#toast-danger"),
+      closeButton: getHTMLElement<HTMLButtonElement>("#toast-danger-close"),
+      message: getHTMLElement<HTMLParagraphElement>("#toast-danger-message"),
     },
   },
   comments: {
-    modal: getElement('#comment-modal') as HTMLDivElement,
-    commentsContainer: getElement('#comment-section') as HTMLUListElement,
+    modal: getHTMLElement<HTMLDivElement>("#comment-modal"),
+    commentsContainer: getHTMLElement<HTMLUListElement>("#comment-section"),
     inputs: {
-      username: getElement('#comment-username-input') as HTMLInputElement,
-      textarea: getElement('#comment-textarea') as HTMLTextAreaElement,
+      username: getHTMLElement<HTMLInputElement>("#comment-username-input"),
+      textarea: getHTMLElement<HTMLTextAreaElement>("#comment-textarea"),
     },
-    charactersRemaining: getElement('#comment-characters-remaining') as HTMLSpanElement,
-    submit: getElement('#comment-submit') as HTMLButtonElement,
-    cancel: getElement('#comment-cancel') as HTMLButtonElement,
+    charactersRemaining: getHTMLElement<HTMLSpanElement>("#comment-characters-remaining"),
+    submit: getHTMLElement<HTMLButtonElement>("#comment-submit"),
+    cancel: getHTMLElement<HTMLButtonElement>("#comment-cancel"),
   },
   theme: {
-    toggle: getElement('#theme-toggle') as HTMLButtonElement,
-    dark: getElement('#theme-toggle-dark-icon') as SVGElement,
-    light: getElement('#theme-toggle-light-icon') as SVGElement,
+    toggle: getHTMLElement<HTMLButtonElement>("#theme-toggle"),
+    dark: getElement<SVGElement>("#theme-toggle-dark-icon"),
+    light: getElement<SVGElement>("#theme-toggle-light-icon"),
   },
 };
