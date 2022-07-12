@@ -62,3 +62,4 @@ Within the `src` directory, you will find the following directories:
   - [Drag and Drop](./src/utils/drag-and-drop.ts) functionality without using a third-party library.
   - [Elements](./src/utils/elements.ts) accessing the DOM elements and exporting them to a global variable.
   - [Render tasks](./src/utils/render-tasks.ts) for rendering the tasks from the Local Storage.
+  - [Theme](./src/utils/theme.ts) for light and dark mode.
