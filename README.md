@@ -4,33 +4,33 @@
 
 ## Project Overview
 
-This project is a clone of the Trello app, using Webpack as the module bundler, TypeScript as the programming language (compiled to the [bundle JS file](./public/bundle.js)), and Tailwind CSS for styling.
+Using TypeScript, Vite, and TailwindCSS, this projects forms the base of a Kanban-style application.
 
-To have full functionality, the project requires an [API](https://github.com/Fulfilled-Koala/M3U2TrelloServer-LucasPatron). Make sure to set the `API_ROOT` in a `.env` file to the URL of the server (default port: `1337`).
+To have full functionality, the project requires an [API](https://github.com/Fulfilled-Koala/M3U2TrelloServer-LucasPatron). The API root is set to `http://localhost:1337` [here](./src/constants/api-url.ts).
 
 ### Setup
 
 Cloning the project:
 
-```bash
+```shell
 $ git clone
 ```
 
 Running the project:
 
-```bash
-$ npm start
+```shell
+$ npm run dev
 ```
 
 Building the project:
 
-```bash
+```shell
 $ npm run build
 ```
 
 Running ESLint:
 
-```bash
+```shell
 $ npm run lint
 ```
 
