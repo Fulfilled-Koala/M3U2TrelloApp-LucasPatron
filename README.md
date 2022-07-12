@@ -44,10 +44,7 @@ You can see the list of hooks in the official [commitlint documentation](https:/
 
 ### Project Structure
 
-Inside the project, you will find the following directories:
-
-- [public](public/): The public directory contains the compiled application.
-- [src](src/): The source directory contains the TypeScript files to be compiled.
+Inside the project, you will find the [src](src/) directory, containing the root of the application.
 
 Within the `src` directory, you will find the following directories:
 
