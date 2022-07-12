@@ -61,5 +61,5 @@ Within the `src` directory, you will find the following directories:
 - [utils](./src/utils/): The `utils` directory contains utility functions used in the application:
   - [Drag and Drop](./src/utils/drag-and-drop.ts) functionality without using a third-party library.
   - [Elements](./src/utils/elements.ts) accessing the DOM elements and exporting them to a global variable.
-  - [Render tasks](./src/utils/render-tasks.ts) for rendering the tasks from the Local Storage.
+  - [Render tasks](./src/utils/render-tasks.ts) for rendering the tasks from the API.
   - [Theme](./src/utils/theme.ts) for light and dark mode.
