@@ -8,8 +8,8 @@ const { cancel, charactersRemaining, commentsContainer, inputs, modal, submit } 
 function invalidInput(comment: string, username: string): boolean {
   if (comment === "" || username === "") return true;
   if (comment.length > 150) return true;
-  if (comment.split(" ").filter((word: string) => word.length > 20).length > 0) return true;
-  return false;
+  return comment.split(" ").filter((word: string) => word.length > 20).length > 0;
+
 }
 
 function resetState() {
