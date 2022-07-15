@@ -4,7 +4,7 @@
 
 ## Project Overview
 
-Using TypeScript, Vite, and TailwindCSS, this projects forms the base of a Kanban-style application.
+Using TypeScript, Vite, and TailwindCSS, this project forms the base of a Kanban-style application.
 
 To have full functionality, the project requires an [API](https://github.com/Fulfilled-Koala/M3U2TrelloServer-LucasPatron). The API root is set to `http://localhost:1337` [here](./src/constants/api-url.ts).
 
