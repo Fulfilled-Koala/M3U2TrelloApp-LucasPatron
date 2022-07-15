@@ -91,6 +91,8 @@ export function setCommentModal(task: Task) {
       username: inputs.username.value,
       comment: inputs.textarea.value,
     });
-    loadComments(updatedTask);
+    if (updatedTask) {
+      loadComments(updatedTask);
+    }
   };
 }

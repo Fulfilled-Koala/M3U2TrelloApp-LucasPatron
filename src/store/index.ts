@@ -6,6 +6,8 @@ export const STORE: Task[] = [];
 
 export default async function initializeStore(): Promise<void> {
   const tasks = await httpGetAll();
-  STORE.push(...tasks);
+  if (tasks) {
+    STORE.push(...tasks);
+  }
   render();
 }
