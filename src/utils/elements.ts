@@ -1,5 +1,5 @@
 function getHTMLElement<T extends HTMLElement>(query: string): T {
-  const el = document.querySelector<T>(query);
+  const el: T | null = document.querySelector<T>(query);
   if (!el) {
     alert(`Element not found: ${query}`);
     throw new Error(`Element not found: ${query}`);
@@ -8,7 +8,7 @@ function getHTMLElement<T extends HTMLElement>(query: string): T {
 }
 
 function getElement<T extends Element>(query: string): T {
-  const el = document.querySelector<T>(query);
+  const el: T | null = document.querySelector<T>(query);
   if (!el) {
     alert(`Element not found: ${query}`);
     throw new Error(`Element not found: ${query}`);
@@ -26,7 +26,7 @@ function getAllElements<T extends HTMLElement>(query: string): NodeListOf<T> {
 }
 
 export function getAllListItems(): NodeListOf<HTMLLIElement> {
-  return getAllElements("li") as NodeListOf<HTMLLIElement>;
+  return getAllElements<HTMLLIElement>("li");
 }
 
 export const elements = {
