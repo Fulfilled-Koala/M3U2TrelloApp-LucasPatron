@@ -47,6 +47,7 @@ function createElement(task: Task): Element {
         month: "long",
         day: "numeric",
       })}
+    </span>
   `,
   );
   leftDiv.appendChild(dateSpan);
